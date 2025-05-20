@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Dashboard - Best Travel Deals</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0ff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+    header {
+      background: #111;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #0ff;
+    }
+    header img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    header h1 {
+      font-size: 1.4rem;
+      color: #0ff;
+    }
+    .container {
+      padding: 20px;
+    }
+    h2 {
+      color: #fff;
+      text-shadow: 0 0 6px #0ff;
+      border-bottom: 1px solid #0ff;
+      padding-bottom: 5px;
+    }
+    .card {
+      background: #111;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 5px solid #0ff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0ff3;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      color: #0ff;
+      padding: 20px;
+      border-top: 2px solid #0ff;
+      margin-top: 50px;
+    }
+    a { color: #0ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo" />
+    <h1>Client Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <h2>Your Bookings</h2>
+    <div id="bookings"></div>
+
+    <h2>Instructions</h2>
+    <div id="instructions"></div>
+
+    <h2>Invoices</h2>
+    <div id="invoices"></div>
+  </div>
+
+  <footer>
+    <p>
+      Best Travel Deals V/O Do Agnihotra Daily<br/>
+      108 Vishwakarma Bhawan, Garha Kalan, Berasia, Bhopal, MP 462120<br/>
+      Email: <a href="mailto:mail@besttraveldeals.in">mail@besttraveldeals.in</a><br/>
+      WhatsApp: 8989114821 | Landline: 01169320078<br/>
+      <a href="orgstructure.html">Organization Structure</a>
+    </p>
+    <p>© 2025 Best Travel Deals</p>
+  </footer>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLobbl-w2KdGvgOiWbDiDrD1ieM0kj84-KwJAmAEmgxbWAE4ruU1i2IP8H21vXQ7Vc/exec';
+    const email = new URLSearchParams(window.location.search).get("email");
+
+    function fetchClientData() {
+      if (!email) {
+        alert("Missing email. Please login again.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      fetch(`${scriptURL}?type=client_dashboard&email=${encodeURIComponent(email)}`)
+        .then(res => res.json())
+        .then(data => {
+          displayData("bookings", data.bookings);
+          displayData("instructions", data.instructions);
+          displayData("invoices", data.invoices);
+        })
+        .catch(err => {
+          document.getElementById("bookings").innerHTML = "Error loading data.";
+        });
+    }
+
+    function displayData(sectionId, items) {
+      const container = document.getElementById(sectionId);
+      if (!items || items.length === 0) {
+        container.innerHTML = "<p>No data available.</p>";
+        return;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="card">
+          <p><strong>Title:</strong> ${item.title || ''}</p>
+          <p><strong>Details:</strong> ${item.details || ''}</p>
+          ${item.link ? `<p><a href="${item.link}" target="_blank">View/Download</a></p>` : ''}
+        </div>
+      `).join('');
+    }
+
+    fetchClientData();
+  </script>
+</body>
+</html>

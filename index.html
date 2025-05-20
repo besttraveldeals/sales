@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Travel Deals</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #111;
+      padding: 10px 20px;
+      border-bottom: 2px solid #0ff;
+    }
+    header img {
+      height: 50px;
+      border-radius: 50%;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #0ff;
+    }
+    .header-buttons a {
+      color: #0ff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #0ff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .tours {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .tour-card {
+      background-color: #1a1a1a;
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 15px #0ff4;
+    }
+    .tour-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .tour-card h3 {
+      margin: 10px 0 5px;
+      color: #0ff;
+    }
+    .tour-card p {
+      font-size: 0.9rem;
+    }
+    .tour-card button {
+      background-color: #0ff;
+      color: #000;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #111;
+      color: #0ff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    .footer-links a {
+      color: #0ff;
+      margin: 0 10px;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" />
+    <h1>Best Travel Deals</h1>
+    <div class="header-buttons">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Tours</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">T&C</a>
+    <a href="refund.html">Cancellation & Refund</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <section class="tours" id="tours-container">
+    <!-- Tours will load here -->
+  </section>
+
+  <footer>
+    <p>
+      Best Travel Deals V/O Do Agnihotra Daily<br/>
+      108 Vishwakarma Bhawan, Garha Kalan, Berasia, Bhopal, Madhya Pradesh 462120<br/>
+      Email: <a href="mailto:mail@besttraveldeals.in">mail@besttraveldeals.in</a><br/>
+      Mobile & WhatsApp: 8989114821 | Landline: 01169320078<br/>
+      <a class="footer-links" href="orgstructure.html">Organization Structure</a>
+    </p>
+    <p>© 2025 Best Travel Deals. All rights reserved.</p>
+  </footer>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbyLobbl-w2KdGvgOiWbDiDrD1ieM0kj84-KwJAmAEmgxbWAE4ruU1i2IP8H21vXQ7Vc/exec?action=gettours")
+      .then(res => res.json())
+      .then(tours => {
+        const container = document.getElementById('tours-container');
+        tours.forEach(tour => {
+          const div = document.createElement('div');
+          div.className = 'tour-card';
+          div.innerHTML = `
+            <img src="${tour['Image URL']}" alt="${tour.Title}" />
+            <h3>${tour.Title}</h3>
+            <p>${tour.Description}</p>
+            <p><strong>Price:</strong> ₹${tour.Price} | <strong>Duration:</strong> ${tour.Duration}</p>
+            <a href="${tour['Booking URL']}">
+              <button>Book Now</button>
+            </a>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById('tours-container').innerHTML = "<p>Unable to load tours at the moment.</p>";
+      });
+  </script>
+</body>
+</html>
