@@ -211,55 +211,106 @@
     </button>
   </div>
 
-  <div id="custom-form">
-    <h3>Custom Date Booking</h3>
-    <form onsubmit="sendWhatsApp(); return false;">
-      <label>Required Date</label>
-      <input type="date" id="date" required />
+  <!-- (Header, banner, styling, and content remain the same until the custom form section) -->
 
-      <label>Destination</label>
-      <select id="destination">
-        <option selected>Pachmarhi</option>
-      </select>
+<!-- Replace the existing custom-form <div> with this: -->
+<div id="custom-form">
+  <h3>Custom Date Booking</h3>
+  <form onsubmit="sendWhatsApp(); return false;">
 
-      <label>Name</label>
-      <input type="text" id="name" placeholder="Full Name" required />
+    <label>Required Date</label>
+    <input type="date" id="date" required />
 
-      <label>Gender</label>
-      <input type="text" id="gender" placeholder="Male/Female/Other" required />
+    <label>Email</label>
+    <input type="email" id="email" placeholder="traveller@besttraveldeals.in" required />
 
-      <label>Age</label>
-      <input type="number" id="age" placeholder="Your Age" required />
+    <label>Destination</label>
+    <select id="destination">
+      <option selected>Pachmarhi</option>
+    </select>
 
-      <label>Mobile</label>
-      <input type="tel" id="mobile" placeholder="10-digit Mobile No." required />
-       <label>Email</label>
-      <input type="mail" id="mail" placeholder="traveller@besttraveldeals.in" required />
+    <div id="traveller-container">
+      <div class="traveller">
+        <h4>Traveller 1</h4>
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Full Name" required />
 
-      <label>Aadhaar Number</label>
-      <input type="text" id="aadhaar" placeholder="XXXX-XXXX-XXXX" required />
+        <label>Gender</label>
+        <input type="text" name="gender" placeholder="Male/Female/Other" required />
 
-      <button type="submit" class="btn">Send via WhatsApp</button>
-    </form>
-  </div>
+        <label>Age</label>
+        <input type="number" name="age" placeholder="Your Age" required />
+
+        <label>Mobile</label>
+        <input type="tel" name="mobile" placeholder="10-digit Mobile No." required />
+
+        <label>Aadhaar Number</label>
+        <input type="text" name="aadhaar" placeholder="XXXX-XXXX-XXXX" required />
+      </div>
+    </div>
+
+    <button type="button" class="btn" onclick="addTraveller()">+ Add Another Traveller</button>
+    <br><br>
+    <button type="submit" class="btn">Send via WhatsApp</button>
+  </form>
 </div>
+
+<!-- Add this script at the end before </body> -->
 
 <footer>
   © 2025 Best Travel Deals. All rights reserved.
 </footer>
-
 <script>
+  let travellerCount = 1;
+
+  function addTraveller() {
+    travellerCount++;
+    const container = document.getElementById("traveller-container");
+    const div = document.createElement("div");
+    div.classList.add("traveller");
+
+    div.innerHTML = `
+      <h4>Traveller ${travellerCount}</h4>
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Full Name" required />
+
+      <label>Gender</label>
+      <input type="text" name="gender" placeholder="Male/Female/Other" required />
+
+      <label>Age</label>
+      <input type="number" name="age" placeholder="Your Age" required />
+
+      <label>Mobile</label>
+      <input type="tel" name="mobile" placeholder="10-digit Mobile No." required />
+
+      <label>Aadhaar Number</label>
+      <input type="text" name="aadhaar" placeholder="XXXX-XXXX-XXXX" required />
+    `;
+    container.appendChild(div);
+  }
+
   function sendWhatsApp() {
-    const name = document.getElementById("name").value;
-    const gender = document.getElementById("gender").value;
-    const age = document.getElementById("age").value;
-    const mobile = document.getElementById("mobile").value;
-    const email = document.getElementById("mail").value;
-    const aadhaar = document.getElementById("aadhaar").value;
     const date = document.getElementById("date").value;
+    const email = document.getElementById("email").value;
     const destination = document.getElementById("destination").value;
 
-    const message = `Hello, I want to book a custom trip:\n\nName: ${name}\nGender: ${gender}\nAge: ${age}\nMobile: ${mobile}\nAadhaar: ${aadhaar}\nMail: ${mail}\nDate: ${date}\nDestination: ${destination}`;
+    const names = document.getElementsByName("name");
+    const genders = document.getElementsByName("gender");
+    const ages = document.getElementsByName("age");
+    const mobiles = document.getElementsByName("mobile");
+    const aadhaars = document.getElementsByName("aadhaar");
+
+    let message = `Hello, I want to book a custom trip:\n\nDate: ${date}\nEmail: ${email}\nDestination: ${destination}\n\n`;
+
+    for (let i = 0; i < names.length; i++) {
+      message += `Traveller ${i + 1}:\n`;
+      message += `Name: ${names[i].value}\n`;
+      message += `Gender: ${genders[i].value}\n`;
+      message += `Age: ${ages[i].value}\n`;
+      message += `Mobile: ${mobiles[i].value}\n`;
+      message += `Aadhaar: ${aadhaars[i].value}\n\n`;
+    }
+
     const whatsappURL = `https://wa.me/918989114821?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
   }
