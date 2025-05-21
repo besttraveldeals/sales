@@ -3,127 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pachmarhi Trip – Best Travel Deals</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap"/>
+  <title>Pachmarhi Luxury Trip - BestTravelDeals</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #fdfdfd;
-      color: #222;
-      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
     }
 
     header {
-      background: url('https://www.besttraveldeals.in/banner.jpg') center/cover no-repeat;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      margin-bottom: 10px;
+    header img {
+      height: 60px;
     }
 
-    header p {
-      font-size: 18px;
-      opacity: 0.9;
+    .banner {
+      width: 100%;
+      height: 300px;
+      background: url('Pachmarhi.png') center/cover no-repeat;
+      border-bottom: 5px solid #d4af37;
     }
 
     .container {
-      padding: 40px 20px;
-      max-width: 960px;
+      max-width: 800px;
       margin: auto;
+      padding: 2rem;
     }
 
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 8px;
-      margin-top: 40px;
-    }
-
-    .day {
-      margin-top: 30px;
-    }
-
-    .spots, .charges, .inclusions {
-      margin-left: 20px;
-    }
-
-    .cta {
-      background: #ffd700;
-      color: #000;
+    h1 {
       text-align: center;
-      padding: 30px;
-      margin: 50px 0;
-      font-size: 20px;
-      border-radius: 10px;
+      color: #2e4a62;
+      margin-bottom: 1rem;
     }
 
-    .cta a {
-      display: inline-block;
-      margin-top: 10px;
-      background: #000;
-      color: #fff;
-      padding: 12px 25px;
+    details {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    details summary {
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #1a3d6d;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .charges, .inclusions, .contact {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    a {
+      color: #0056b3;
       text-decoration: none;
-      border-radius: 6px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      background: #d4af37;
+      padding: 0.75rem 1.5rem;
+      display: inline-block;
+      margin-top: 1rem;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #c79e2b;
     }
 
     footer {
-      background: #222;
-      color: #fff;
       text-align: center;
-      padding: 20px;
-    }
-
-    footer a {
-      color: #ffd700;
-      text-decoration: none;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Pachmarhi Trip</h1>
-    <p>With <strong>@besttraveld</strong> | 6th June 2025</p>
-  </header>
+<header>
+  <img src="logo.png" alt="BestTravelDeals Logo">
+</header>
 
-  <div class="container">
-    <h2>Day-wise Itinerary</h2>
+<div class="banner"></div>
 
-    <div class="day">
-      <h3>Day 1</h3>
-      <p>Departure from Indore / Dewas / Bhopal at <strong>9:00 PM</strong> by luxury traveller.<br>
-      Enjoy an overnight journey through scenic routes.</p>
-    </div>
+<div class="container">
+  <h1>Pachmarhi Luxury Trip<br>with @besttraveld</h1>
+  <p style="text-align:center;"><strong>Departure Date:</strong> 6th June 2025</p>
 
-    <div class="day">
-      <h3>Day 2</h3>
-      <p>Arrive in Pachmarhi early morning.<br>
-      Check-in to your stay, freshen up, and enjoy breakfast.<br>
-      Full day of local sightseeing. Return by <strong>7:00 PM</strong>.<br>
-      Overnight stay with all amenities included.</p>
-    </div>
+  <details open>
+    <summary>DAY 1: Departure</summary>
+    <p>Departure from Indore / Dewas / Bhopal at 9:00 PM by Traveller.<br>Overnight journey to Pachmarhi.</p>
+  </details>
 
-    <div class="day">
-      <h3>Day 3</h3>
-      <p>Start your day with breakfast and continue exploring the beautiful hill station.<br>
-      Return by <strong>6:00 PM</strong>. Enjoy a delicious dinner by <strong>8:00 PM</strong>.<br>
-      Post dinner, check-out and begin the return journey.</p>
-    </div>
+  <details>
+    <summary>DAY 2: Arrival & Sightseeing</summary>
+    <p>Arrival in Pachmarhi by early morning. Check-in, freshen up, and enjoy breakfast. Full day of local sightseeing. Return to stay by 7:00 PM. Overnight stay.</p>
+  </details>
 
-    <div class="day">
-      <h3>Day 4</h3>
-      <p>Reach Indore / Dewas / Bhopal by early morning.<br>
-      Trip ends with unforgettable memories!</p>
-    </div>
+  <details>
+    <summary>DAY 3: Exploration & Return</summary>
+    <p>Breakfast followed by more local exploration. Return to stay by 6:00 PM. Dinner around 8:00 PM. Post-dinner, check-out and depart for return journey.</p>
+  </details>
 
-    <h2>Spots Covered</h2>
-    <ul class="spots">
+  <details>
+    <summary>DAY 4: Arrival Back</summary>
+    <p>Early morning arrival back in Bhopal / Dewas / Indore.<br>Trip ends with lifetime memories!</p>
+  </details>
+
+  <details>
+    <summary>SPOTS COVERED</summary>
+    <ul>
       <li>Dhoopgarh</li>
       <li>Bee Fall</li>
       <li>Jata Shankar</li>
@@ -137,37 +153,43 @@
       <li>Bison Lodge</li>
       <li>Gupt Mahadev</li>
     </ul>
+  </details>
 
-    <h2>Charges</h2>
-    <ul class="charges">
+  <div class="charges">
+    <h3>CHARGES</h3>
+    <ul>
       <li><strong>Quad Sharing:</strong> ₹4499/- per person</li>
       <li><strong>Trip Sharing:</strong> ₹4999/- per person</li>
       <li><strong>Couple Package:</strong> ₹5499/- per person</li>
     </ul>
-
-    <h2>Inclusions</h2>
-    <ul class="inclusions">
-      <li>Transportation (Indore / Dewas / Ujjain / Bhopal)</li>
-      <li>1 Night Premium Stay</li>
-      <li>2 Breakfasts & 2 Dinners</li>
-      <li>Local Sightseeing & Entry Permits</li>
-      <li>Gypsy Rides & Trekking</li>
-      <li>24×7 Assistance</li>
-      <li>Dedicated Trip Leader</li>
-    </ul>
-
-    <div class="cta">
-      ✨ Book your escape to nature now! <br>
-      <a href="https://www.besttraveldeals.in" target="_blank">Book Now at BestTravelDeals.in</a>
-    </div>
   </div>
 
-  <footer>
-    📞 Call us at: <strong>01169320078</strong> |
-    📩 Mail: <a href="mailto:mail@besttraveldeals.in">mail@besttraveldeals.in</a><br>
-    📸 Follow us on Instagram: <a href="https://instagram.com/besttraveld" target="_blank">@besttraveld</a><br>
-    &copy; 2025 Best Travel Deals. All rights reserved.
-  </footer>
+  <div class="inclusions">
+    <h3>INCLUSIONS</h3>
+    <ul>
+      <li>Transportation (Indore/Dewas/Ujjain/Bhopal)</li>
+      <li>1 Night Stay</li>
+      <li>2 Breakfasts & 2 Dinners</li>
+      <li>Local Sightseeing</li>
+      <li>All Required Permits</li>
+      <li>Gypsy Rides</li>
+      <li>Trekking</li>
+      <li>24×7 Assistance</li>
+      <li>Trip Leader</li>
+    </ul>
+  </div>
+
+  <div class="contact">
+    <h3>BOOK NOW!</h3>
+    <a href="https://www.besttraveldeals.in" class="btn">Visit besttraveldeals.in</a>
+    <p>Call us: <strong>01169320078</strong><br>
+    Instagram: <a href="https://instagram.com/besttraveld" target="_blank">@besttraveld</a></p>
+  </div>
+</div>
+
+<footer>
+  © 2025 Best Travel Deals. All rights reserved.
+</footer>
 
 </body>
 </html>
