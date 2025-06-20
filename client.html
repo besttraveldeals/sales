@@ -98,7 +98,7 @@
         return;
       }
 
-      fetch(`${scriptURL}?type=client_dashboard&email=${encodeURIComponent(email)}`)
+      fetch(`${scriptURL}?action=getdashboard&email=${encodeURIComponent(email)}`)
         .then(res => res.json())
         .then(data => {
           displayData("bookings", data.bookings);
