@@ -3,66 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Travel Info Form – Best Travel Deals</title>
+  <title>Company Profile – Best Travel Deals</title>
   <link rel="icon" href="https://besttraveldeals.in/logo.png">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      color: #333;
     }
 
-    .container {
+    header {
+      background: #004d40;
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      flex: 1;
+    }
+
+    header .contact {
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
       background: white;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      max-width: 500px;
-      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    .container h2 {
-      text-align: center;
+    h2 {
       color: #00796b;
-      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    .form-container {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 2px solid #ccc;
     }
 
     label {
       display: block;
       margin: 10px 0 5px;
-      color: #333;
     }
 
-    input[type="text"],
-    input[type="number"],
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       padding: 10px;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      border-radius: 8px;
       box-sizing: border-box;
     }
 
-    textarea {
-      resize: vertical;
-    }
-
     button {
+      margin-top: 15px;
       background-color: #00796b;
       color: white;
-      padding: 12px 20px;
+      padding: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
       width: 100%;
-      margin-top: 15px;
     }
 
     button:hover {
@@ -70,41 +93,107 @@
     }
 
     .success {
-      color: green;
       text-align: center;
-      margin-top: 10px;
+      color: green;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0f2f1;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Travel Details Form</h2>
-    <form id="travelForm">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+  <header>
+    <img src="https://besttraveldeals.in/logo.png" alt="Best Travel Deals Logo">
+    <h1>BEST TRAVEL DEALS</h1>
+    <div class="contact">
+      📧 Mail@besttraveldeals.in<br>
+      🌐 www.besttraveldeals.in<br>
+      📞 01169320078
+    </div>
+  </header>
 
-      <label for="gender">Gender</label>
-      <select id="gender" name="gender" required>
-        <option value="" disabled selected>Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
+  <div class="content">
+    <h2>Company Profile</h2>
+    <p><strong>BEST TRAVEL DEALS</strong> is a trusted and growing travel management company committed to delivering personalized and affordable travel experiences across India and abroad. Founded with a passion for travel and hospitality, we specialize in creating seamless and value-driven travel solutions for families, groups, corporates, and solo travelers.</p>
 
-      <label for="room_sharing">Room Sharing Preference</label>
-      <input type="text" id="room_sharing" name="room_sharing" required placeholder="e.g., 2 sharing, single room, etc.">
+    <p><strong>Our core mission</strong> is to make travel stress-free, enriching, and cost-effective, while ensuring the highest standards of customer satisfaction.</p>
 
-      <label for="adhar_number">Aadhar Number</label>
-      <input type="number" id="adhar_number" name="adhar_number" required>
+    <h2>Our Services</h2>
+    <ul>
+      <li>✈️ Air Ticketing (Domestic & International)</li>
+      <li>🚆 Railway & Bus Bookings</li>
+      <li>🏨 Hotel Reservations</li>
+      <li>🚖 Customized Tour Packages (India & Global)</li>
+      <li>🚘 Transport & Local Sightseeing Services</li>
+      <li>📍 Destination Management (MP, HP, etc.)</li>
+      <li>🧳 Group, Corporate, and Student Tours</li>
+      <li>💳 Razorpay Payment Integration</li>
+    </ul>
 
-      <label for="medical_issue">Any Medical Issue</label>
-      <textarea id="medical_issue" name="medical_issue" placeholder="Mention if any..." rows="3"></textarea>
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>✅ Tailor-Made Packages as per your preferences</li>
+      <li>✅ Transparent Pricing</li>
+      <li>✅ 24x7 Call & WhatsApp Support</li>
+      <li>✅ Local Network in Pachmarhi, Bhopal, Manali, etc.</li>
+      <li>✅ Strong B2B Hotel & Transporter Partnerships</li>
+    </ul>
 
-      <button type="submit">Submit</button>
-      <div class="success" id="successMessage"></div>
-    </form>
+    <h2>Special Focus Areas</h2>
+    <ul>
+      <li>🌄 <strong>MP Tourism</strong>: Pachmarhi, Maheshwar, Amarkantak, Kanha</li>
+      <li>🏔️ <strong>Himachal Getaways</strong>: Manali, Shimla & more</li>
+      <li>🌐 <strong>International</strong>: UAE, Thailand, Singapore, Maldives</li>
+    </ul>
+
+    <h2>Our Vision</h2>
+    <p>To become India’s most trusted travel agency by building strong relationships, delivering exceptional service, and crafting memorable journeys for every traveler.</p>
+
+    <h2>Contact Us</h2>
+    <p><strong>BEST TRAVEL DEALS</strong><br>
+    📍 Bhopal, Madhya Pradesh, India<br>
+    📧 Mail@besttraveldeals.in<br>
+    🌐 www.besttraveldeals.in<br>
+    📞 01169320078 (Call)</p>
+
+    <div class="form-container">
+      <h2>Submit Your Travel Info</h2>
+      <form id="travelForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label for="room_sharing">Room Sharing Preference</label>
+        <input type="text" id="room_sharing" name="room_sharing" required>
+
+        <label for="adhar_number">Aadhar Number</label>
+        <input type="number" id="adhar_number" name="adhar_number" required>
+
+        <label for="medical_issue">Any Medical Issue</label>
+        <textarea id="medical_issue" name="medical_issue" rows="3"></textarea>
+
+        <button type="submit">Submit</button>
+        <div class="success" id="successMessage"></div>
+      </form>
+    </div>
   </div>
+
+  <footer>
+    &copy; 2025 Best Travel Deals | Follow us on Instagram: <strong>@besttraveld</strong>
+  </footer>
 
   <script>
     document.getElementById("travelForm").addEventListener("submit", function(e) {
