@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Info Form – Best Travel Deals</title>
+  <link rel="icon" href="https://besttraveldeals.in/logo.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #00796b;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Travel Details Form</h2>
+    <form id="travelForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label for="room_sharing">Room Sharing Preference</label>
+      <input type="text" id="room_sharing" name="room_sharing" required placeholder="e.g., 2 sharing, single room, etc.">
+
+      <label for="adhar_number">Aadhar Number</label>
+      <input type="number" id="adhar_number" name="adhar_number" required>
+
+      <label for="medical_issue">Any Medical Issue</label>
+      <textarea id="medical_issue" name="medical_issue" placeholder="Mention if any..." rows="3"></textarea>
+
+      <button type="submit">Submit</button>
+      <div class="success" id="successMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("travelForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+      const params = new URLSearchParams();
+
+      for (const pair of data.entries()) {
+        params.append(pair[0], pair[1]);
+      }
+
+      fetch("https://script.google.com/macros/s/AKfycbz6fWlEQxxhL37D0HN_afjZyp9oVnpXWcpmAnIZK_x5SoD-LMt3kavC5xHqAyl3HLDxOQ/exec", {
+        method: "POST",
+        body: params,
+      })
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("successMessage").textContent = "Form submitted successfully!";
+        form.reset();
+      })
+      .catch(error => {
+        document.getElementById("successMessage").textContent = "Error submitting form.";
+      });
+    });
+  </script>
+
+</body>
+</html>
