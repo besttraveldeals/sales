@@ -110,6 +110,9 @@
       fetch(`${scriptURL}?action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`)
         .then(res => res.json())
         .then(data => {
+          if (data.email) {
+            localStorage.setItem('btdEmail', data.email)
+          }
           if (data.role) {
             status.textContent = "Login successful. Redirecting...";
             setTimeout(() => {
