@@ -119,9 +119,9 @@
 
       container.innerHTML = items.map(item => `
         <div class="card">
-          <p><strong>Title:</strong> ${item.title || ''}</p>
-          <p><strong>Details:</strong> ${item.details || ''}</p>
-          ${item.link ? `<p><a href="${item.link}" target="_blank">View/Download</a></p>` : ''}
+          <p><strong>Title:</strong> ${item.Title || ''}</p>
+          <p><strong>Details:</strong> ${item.Details || ''}</p>
+          ${item.Link ? `<p><a href="${item.Link}" target="_blank">View/Download</a></p>` : ''}
         </div>
       `).join('');
     }
