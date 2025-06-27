@@ -61,8 +61,11 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Logo" />
+   <div>
+      <img src="logo.png" alt="Logo" />
     <h1>Client Dashboard</h1>
+   </div>
+   <button id="sign-out-btn">Sign Out</button>
   </header>
 
   <div class="container">
@@ -89,7 +92,14 @@
 
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyLobbl-w2KdGvgOiWbDiDrD1ieM0kj84-KwJAmAEmgxbWAE4ruU1i2IP8H21vXQ7Vc/exec';
-    const email = new URLSearchParams(window.location.search).get("email");
+    const email = localStorage.getItem('btdEmail');
+
+    const signOutButton = document.getElementById('sign-out-btn');
+
+    signOutButton.addEventListener('click' => {
+      localStorage.removeItem('btdEmail');
+      window.location.href = "login.html";
+    })
 
     function fetchClientData() {
       if (!email) {
